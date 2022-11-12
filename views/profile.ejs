@@ -38,19 +38,6 @@
             </div>
         </div>
         <div class="col-sm-6">
-                                    <!--a container(Songs) catalogue -->
-                                    <!-- artist and song title -->
-                                    <!-- artist and song is clickable to add to playlist -->
-
-
-                                    <!-- playlist(container)has 2 elements -->
-                                    <!--shows artist and song title (maybe add song time) -->
-                                    <!-- has 2 buttons which is Play and Skip -->
-                                    <!-- highlight song thats being played -->
-                                    <!-- once finished, remove from playlist -->
-                                    <!-- if skipped,remove as well -->
-
-
 
 <form action="/addSong" method="post">
   <input type="text" placeholder="artist" name="artist">
@@ -60,16 +47,16 @@
 
   <% for(var i=0; i<artist.length; i++) {%>
     <div class="card">
-      <div class="cards-body">
+      <div class="cards-body" id="<%=artist[i]._id%>">
         <h5 class="card-title"><%=artist[i].artist%></h5>
           <span><%=artist[i].song%></span>
           <span><%artist[i].time%></span>
-          <span><i class="fa-sharp fa-solid fa-check"></i></span>
+          <a href="<%=artist[i].song%>.mp3" download><i class="fa-sharp fa-solid fa-download"></i></a>
           <span><i class="fa-sharp fa-solid fa-trash"></i></span>
-          <% if (artist[i].heardit === true) { %>
-            <p>yeah ofc i heard it </p>
+          <% if (artist[i].downloaded) { %>
+            <p class="downloaded">DOWNLOADED</p>
             <%} else { %>
-            <p>nawh im way behind</p>
+            <p></p>
             <% } %>
       </div>
     </div>

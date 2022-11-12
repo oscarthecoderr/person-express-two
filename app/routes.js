@@ -1,4 +1,3 @@
-const { reduce } = require("lodash");
 
 const { ObjectID } = require("mongodb").ObjectId;
 
@@ -46,7 +45,7 @@ app.post('/addSong', (req, res) => {
      artist: req.body.artist, 
      song: req.body.song,
      time: new Date().toLocaleTimeString(),
-     heardit:false
+     downloaded:false
     }, 
       (err, result) => {
     if (err) return console.log(err)
@@ -57,12 +56,12 @@ app.post('/addSong', (req, res) => {
 
 
 
-app.put('/addSong', (req, res) => {
+app.put('/download', (req, res) => {
   console.log(req.body)
   db.collection('playList')
-  .findOneAndUpdate({song:req.body.song}, {
+  .findOneAndUpdate({_id:ObjectID(req.body._id)}, {
     $set: {
-      heardit:req.body.true
+      downloaded:true
     }
   }, {
     sort: {_id: -1},

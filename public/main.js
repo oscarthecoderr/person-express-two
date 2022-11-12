@@ -1,18 +1,16 @@
-var check = document.getElementsByClassName("fa-check");
+var download = document.getElementsByClassName("fa-download");
 var thumbDowns = document.getElementsByClassName("fa-thumbs-down");
 var trash = document.getElementsByClassName("fa-trash");
 
-Array.from(check).forEach(function(element,index) {
+Array.from(download).forEach(function(element,index) {
   element.addEventListener('click', function(){
-    const song = this.parentNode.parentNode.childNodes[3].innerText
-    console.log()
-
-    fetch('addSong', {
+    const _id = this.parentNode.parentNode.getAttribute('id').trim()
+    console.log(_id)
+    fetch('download', {
       method: 'put',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-         "song":song,
-         "true":true
+          _id
 
       })
     })

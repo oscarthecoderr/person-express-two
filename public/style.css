@@ -1,7 +1,18 @@
+
+
 body{
-  padding-top:80px;
   word-wrap:break-word;
 }
 img{
   height: 200px;
+}
+
+.downloaded{
+  color:white;
+  background: grey;
+  border-radius: 5px;
+  font-style: italic;
+  font-weight: 900;
+  width: 130px;
+  padding: 2px;
 }
