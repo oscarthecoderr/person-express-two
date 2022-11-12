@@ -1,7 +1,8 @@
 
 
 body{
-  word-wrap:break-word;
+  background-color: #e8dc00;
+background-image: url("https://www.transparenttextures.com/patterns/cartographer.png");
 }
 img{
   height: 200px;
@@ -15,4 +16,18 @@ img{
   font-weight: 900;
   width: 130px;
   padding: 2px;
+}
+
+.col-sm-6 {
+  flex: 0 0 auto;
+  width: 60%;
+  margin: auto;
+}
+
+.card{
+  text-align: center;
+}
+
+.row{
+  text-align: center;
 }
